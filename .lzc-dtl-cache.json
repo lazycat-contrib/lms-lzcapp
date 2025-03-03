@@ -1,0 +1,39 @@
+{
+  "name": "LMS",
+  "package": "cloud.lazycat.app.lms",
+  "description": "轻量级音乐服务器",
+  "homepage": "https://github.com/epoupon/lms",
+  "author": "epoupon",
+  "app_features": [
+    "multi_instance",
+    "public_path"
+  ],
+  "subdomain": "lms",
+  "version": "3.64.0",
+  "public_paths": [
+    "/"
+  ],
+  "iconPath": "icon.png",
+  "composePath": "docker-compose.yml",
+  "unsupported_platforms": [],
+  "lastRouteType": "from_compose",
+  "port_mappings": {
+    "lms_<port>_5082": {
+      "use": true,
+      "type": "http",
+      "path": "/",
+      "targetPath": "/"
+    }
+  },
+  "image_epoupon_lms": {
+    "originalImage": "epoupon/lms",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/czyt/epoupon/lms:e47b879ae463b79b",
+    "timestamp": "2025-03-03T13:13:54.318Z"
+  },
+  "lms_volume_<path_to_music>_/music_action": "emptyDir",
+  "lms_volume_/music_location": "user_data",
+  "lms_volume_/music_subdir": "music",
+  "lms_volume_<path_to_persistent_data>_/var/lms_action": "emptyDir",
+  "lms_volume_/var/lms_location": "app_data"
+}
