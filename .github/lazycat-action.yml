@@ -1,0 +1,39 @@
+version: 1
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/lms.lpk
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: lms
+build:
+  run_buildscript: false
+images:
+  - id: lms
+    target: service
+    service: lms
+    source: epoupon/lms
+    channel: stable
+    tag_regex: '^v?[0-9]+\.[0-9]+\.[0-9]+$'
+    delivery:
+      mode: lazycat
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: true
+    changelog_locales: [zh, en]
+    application:
+      language: zh
+      name: LMS
+      source: https://github.com/epoupon/lms
+      source_author: epoupon
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: LMS
+    summary: 轻量级自托管音乐服务器
