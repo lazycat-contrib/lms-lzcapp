@@ -7,18 +7,17 @@ application:
   upstreams:
     - location: /
       backend: http://lms:5082/
-
 services:
   lms:
     # epoupon/lms:3.71.0
-    image: registry.lazycat.cloud/czyt/epoupon/lms:2465d08203bc3aae
+    # upstream: epoupon/lms:3.78.0
+    image: registry.lazycat.cloud/czyt/epoupon/lms:b16072254952bf0d
     user: 1000
     binds:
       - /lzcapp/documents/music:/music
       - /lzcapp/var/lms:/var/lms
     setup_script: |
       chown -R 1000:1000 /var/lms
-
 ext_config:
   enable_document_access: true
   enable_media_access: true
