@@ -10,8 +10,8 @@ application:
 services:
   lms:
     # epoupon/lms:3.71.0
-    # upstream: epoupon/lms:3.80.0
-    image: registry.lazycat.cloud/czyt/epoupon/lms:6b574b9ebe5a26ac
+    # upstream: epoupon/lms:3.81.0
+    image: registry.lazycat.cloud/czyt/epoupon/lms:7e1c22b0ffb6f610
     user: 1000
     binds:
       - /lzcapp/documents/music:/music
